@@ -14,17 +14,16 @@ class Graph(object):
     This is a class that takes the number of nodes and a list of tuples or
     a list of lists of vertices and generates a numpy array representing the
     graph.
-    The graph can then be plotted, represented by an adjacency matrix or
-    a graph tree (dictionary).
+    The graph can then be plotted, represented by an adjacency matrix,
+    list or dictionary.
     ----------------------------------------------------------------------------
     @param:
         nodes (int)
         vertices (list of tuples) OR (list of lists)
     @methods:
-        get_graph()
-        get_tree()
         get_adj_matrix()
         get_adj_list()
+        get_adj_dict()
         show_graph()
     ============================================================================
     """
