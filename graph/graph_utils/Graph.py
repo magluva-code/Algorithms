@@ -1,6 +1,6 @@
 # Graph generator class.
 # This does not track distance between points, as of yet at least.
-# This is intended for use while exploring graph algorithms.
+# This is intended for use while exploring graph algorithms (undirected).
 
 import numpy as np
 import networkx as nx
