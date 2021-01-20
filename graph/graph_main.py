@@ -1,4 +1,8 @@
+# Just an example of a main running the algorithms.
+
+import numpy as np
 from graph_utils import Graph as gr
+from graph_utils import GraphObj as go
 import DFS as dfs_search
 import BFS as bfs_search
 import Dijkstra as fsp_search
@@ -26,14 +30,33 @@ def run_BFS():
     return adj_dict, path
 
 def run_Dijkstra():
-    graph = {0 : [fsp_search.NodeDist(1 ,5), fsp_search.NodeDist(2 ,1), fsp_search.NodeDist(3 ,4)],
-             1 : [fsp_search.NodeDist(0 ,5), fsp_search.NodeDist(2 ,3), fsp_search.NodeDist(4 ,8)],
-             2 : [fsp_search.NodeDist(0 ,1), fsp_search.NodeDist(1 ,3), fsp_search.NodeDist(3 ,2), fsp_search.NodeDist(4 ,1)],
-             3 : [fsp_search.NodeDist(0 ,4), fsp_search.NodeDist(2 ,2), fsp_search.NodeDist(4 ,2), fsp_search.NodeDist(5 ,1)],
-             4 : [fsp_search.NodeDist(1 ,8), fsp_search.NodeDist(2 ,1), fsp_search.NodeDist(3 ,2), fsp_search.NodeDist(5 ,3)],
-             5 : [fsp_search.NodeDist(3 ,1), fsp_search.NodeDist(4 ,3)]}
+    N = 6
+    graph = go.GraphObj(N)
+    # For loop goes here!
+    # Possible to shorten code by over 10 lines...
+    graph.add_node(go.Node(0), go.Node(1, dist=5))
+    graph.add_node(go.Node(0), go.Node(2, dist=1))
+    graph.add_node(go.Node(0), go.Node(3, dist=4))
+    graph.add_node(go.Node(1), go.Node(0, dist=5))
+    graph.add_node(go.Node(1), go.Node(2, dist=3))
+    graph.add_node(go.Node(1), go.Node(4, dist=8))
+    graph.add_node(go.Node(2), go.Node(0, dist=1))
+    graph.add_node(go.Node(2), go.Node(1, dist=3))
+    graph.add_node(go.Node(2), go.Node(3, dist=2))
+    graph.add_node(go.Node(2), go.Node(4, dist=1))
+    graph.add_node(go.Node(3), go.Node(0, dist=4))
+    graph.add_node(go.Node(3), go.Node(2, dist=2))
+    graph.add_node(go.Node(3), go.Node(4, dist=2))
+    graph.add_node(go.Node(3), go.Node(5, dist=1))
+    graph.add_node(go.Node(4), go.Node(1, dist=8))
+    graph.add_node(go.Node(4), go.Node(2, dist=1))
+    graph.add_node(go.Node(4), go.Node(3, dist=2))
+    graph.add_node(go.Node(4), go.Node(5, dist=3))
+    graph.add_node(go.Node(5), go.Node(3, dist=1))
+    graph.add_node(go.Node(5), go.Node(4, dist=3))
+    graph.create("dict", dt=np.object)
     start = 0
-    dijkstra = fsp_search.Dijkstra(graph)
+    dijkstra = fsp_search.Dijkstra(graph.get())
     path = dijkstra(start)
     return start, path
 
@@ -44,8 +67,6 @@ def print_res(headers, args, line_length=70):
         [print("\n{0}".format(args[i])) for i in range(len(args))]
         [print("=", end="") for i in range(line_length)]
         print("\n")
-
-
 
 if __name__ == "__main__":
 

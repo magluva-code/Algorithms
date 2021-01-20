@@ -1,11 +1,6 @@
 # Dijkstra algorithm class.
 
 
-class NodeDist(object):
-    def __init__(self, name, dist):
-        self.name = name
-        self.dist = dist
-
 class Dijkstra(object):
     def __init__(self, graph):
         self.graph = graph
